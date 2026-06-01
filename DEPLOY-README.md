@@ -1,26 +1,18 @@
-# CortexEdge — Microsoft 365 Copilot for Aerospace (standalone track)
+# CortexEdge — Microsoft 365 Copilot for Aerospace
 
-Standalone PWA for deployment to: https://cortexelearn.github.io/copilot/
+Deploy to: https://cortexelearn.github.io/copilot/
 
-## Build notes
-- Full v43 CortexEdge app, locked to the COPILOT track (currentTrack = "copilot").
-- Track-switcher UI hidden; saved-track restore disabled so it always stays on COPILOT.
-- Cache: cortexedge-copilot-v1 (unique per track, no collisions).
-- All paths relative (./), works under the /copilot/ subpath.
+- Locked to "copilot" track. Switcher hidden. Saved-track restore disabled.
+- Exam-phase fix included (handles both string and numeric phase schemas).
+- Cache: cortexedge-copilot-v2
 
-## Deploy
-1. Create GitHub repo named exactly: copilot
-2. Upload the CONTENTS of this folder (index.html, sw.js, manifest.json, icons/) to the repo ROOT.
-   Do NOT upload the .zip itself — GitHub Pages does not unzip.
-3. Settings -> Pages -> Deploy from branch: main, folder / (root).
-4. Open https://cortexelearn.github.io/copilot/ (wait ~1 min for first build).
-
-## First load
-Hard-refresh or use a private window the first time so an old service worker
-isn't serving cached content. On future updates, bump the cache version in sw.js.
+## Deploy / redeploy
+1. Repo named exactly: copilot
+2. Upload CONTENTS (index.html, sw.js, manifest.json, icons/) to repo ROOT. Not the zip.
+3. Settings -> Pages -> branch main, / (root).
+4. First load: hard-refresh or private window.
 
 ## Smoke test
-- [ ] Title shows "Microsoft 365 Copilot for Aerospace"
-- [ ] Correct lessons in sidebar, NO track switcher
-- [ ] Final exam loads questions (25-question attempt from the 53-pool)
-- [ ] Quizzes score; install + offline works; progress persists
+- [ ] Title "Microsoft 365 Copilot for Aerospace"; correct lessons; no switcher
+- [ ] Final exam shows 25 questions (was 0 before this fix)
+- [ ] Submit scores correctly; install + offline; progress persists

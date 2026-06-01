@@ -1,7 +1,7 @@
-// Service Worker for CortexEdge — Microsoft 365 Copilot for Aerospace (standalone track)
+// Service Worker for CortexEdge — AI Mastery for Aerospace (standalone track)
 // Provides offline support after first visit
 
-const CACHE_NAME = 'cortexedge-copilot-v1';
+const CACHE_NAME = 'cortexedge-copilot-v2';
 const PRECACHE_URLS = [
   './',
   './index.html',

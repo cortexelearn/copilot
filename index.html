@@ -2609,9 +2609,18 @@ function buildExamAttempt(pool) {
   const EXAM_SIZE = 25;
   const phases = ["P1", "P2", "P3", "P4"];
 
+  // Normalize phase across both pool schemas:
+  //  - older schema uses string phases ("P1".."P4")
+  //  - newer schema uses numeric phases (1..4)
+  const normPhase = (ph) => {
+    if (typeof ph === "number") return "P" + ph;
+    if (typeof ph === "string") return ph.startsWith("P") ? ph : "P" + ph;
+    return ph;
+  };
+
   // Group pool by phase
   const byPhase = {};
-  phases.forEach(p => { byPhase[p] = pool.filter(q => q.phase === p); });
+  phases.forEach(p => { byPhase[p] = pool.filter(q => normPhase(q.phase) === p); });
 
   // Allocate question count per phase (proportional to pool sizes)
   const totalPool = pool.length;
@@ -11018,7 +11027,7 @@ function CourseApp() {
       const rawPrefs = localStorage.getItem("course-prefs");
       if (rawPrefs) {
         const prefs = JSON.parse(rawPrefs);
-        if (false) { /* standalone build: ignore saved track, always stay on "copilot" */
+        if (false) { /* standalone build: lock to "copilot" */
           setCurrentTrack(prefs.currentTrack);
         }
         if (typeof prefs.sidebarCollapsed === "boolean") {
