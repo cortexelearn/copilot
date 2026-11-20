@@ -9583,7 +9583,7 @@ const COPILOT_LESSONS = [
     { type: "p", text: "Outlook and Teams are where most engineers spend most of their day. Copilot's integration into these apps is the highest-frequency productivity win — small time savings on dozens of daily interactions add up to real impact. This lesson covers the use cases that actually save time, plus the ones that look exciting but create more work than they save." },
 
     { type: "h3", text: "Outlook with Copilot" },
-    { type: "p", text: "Eligible work/school users get Copilot Chat inside Outlook even without the add-on: it can answer questions about your inbox, calendar, and meetings, such as summarizing the thread you are reading. M365 Copilot Enterprise (the add-on) widens what Copilot can reason over to your Teams chats, files, and other work data via Microsoft Graph, and adds the deeper in-app features. The list below is the full Enterprise feature set; which items a Chat-only user sees depends on the tenant's Copilot label. Key features:" },
+    { type: "p", text: "Eligible work/school users get Copilot Chat inside Outlook even without the add-on: it can answer questions about your inbox, calendar, and meetings, such as summarizing the thread you are reading. M365 Copilot Enterprise (the add-on) widens what Copilot can reason over to your Teams chats, files, and other work data via Microsoft Graph, and adds the deeper in-app features. The list below is the full Enterprise feature set; which items a Chat-only user sees depends on your organization's Copilot licenses and the settings your IT admins have turned on. Key features:" },
     { type: "ul", items: [
       "**Summarize a long email thread** — 'summarize this thread' on a 30-message back-and-forth gives you the current state in two paragraphs. Excellent for jumping into threads mid-discussion.",
       "**Draft a reply** — give Copilot a one-line intent ('decline politely, suggest we revisit next quarter') and it generates a draft using the thread context.",
@@ -9598,7 +9598,7 @@ const COPILOT_LESSONS = [
       "**Meeting recap and action items** — after a recorded/transcribed meeting, Copilot generates: key decisions, action items with owners, open questions, and a topic-level summary. Manually extracting these from an hour of design review notes typically takes 15-30 minutes; Copilot drafts the summary in seconds, though you should still budget a few minutes to verify owners and caveats.",
       "**Catch up on a meeting you missed** — 'what did I miss?' on a transcribed meeting. Includes who said what about which topics.",
       "**Chat / channel summarization** — 'summarize the discussion from the last 24 hours in the Thermal Design channel' surfaces the current state without scrolling.",
-      "**Live meeting Q&A** — ask Copilot during a meeting: 'what did Sarah just say about the cooling margin?' Useful for clarification without interrupting.",
+      "**Live meeting Q&A** — ask Copilot during a meeting: 'what did Sarah just say about the cooling margin?' Useful for clarification without interrupting. By default, meeting Copilot needs transcription turned on; your admin may instead allow an 'only during the meeting' mode that keeps no transcript, in which case Copilot is not available in the meeting recap afterward. Answers are only as good as the transcript: if several people share one conference-room microphone, Copilot may not know who said what.",
       "**Generate follow-up emails** — convert meeting action items into draft emails with one prompt."
     ]},
 
@@ -9606,18 +9606,21 @@ const COPILOT_LESSONS = [
     { type: "ul", items: [
       "**Program review summaries** — convert a 90-minute review into a one-page status update with decisions, actions, and open issues.",
       "**Supplier call follow-ups** — auto-draft the 'thanks for the call, here's what we agreed' email with action items.",
-      "**Design review minutes (first draft)** — eliminate manual live note-taking so engineers can focus on the technical review, then assign one reviewer to verify Copilot's draft decisions and action owners before publishing formal minutes.",
+      "**Design review minutes (first draft)** — cut down on manual live note-taking so engineers can focus on the technical review, then assign one reviewer to verify Copilot's draft decisions and action owners before publishing formal minutes.",
       "**Engineering change board (ECB) prep** — summarize the email thread of comments on a proposed change so the board members can quickly see the open issues.",
       "**Inbox triage** — 'show me unread emails from the last 24 hours about Program X' to focus on what matters."
     ]},
+    {type: "h3", text: "Manager's Scenario: Back From a Supplier Visit"},
+    {type: "p", text: "A lead returns from a two-day supplier visit to 45 unread emails and a missed 60-minute thermal design review. A sensible sequence: (1) ask Copilot in Outlook for unread threads that mention the supplier deliverable; (2) summarize the longest thread and draft a short reply, checking every date before sending; (3) open the design review recap (this step needs the paid Copilot add-on licence) for decisions and open questions, then check any action assigned to your team against the transcript before it goes into the action tracker. Set two team norms: a Copilot draft never becomes official minutes or a commitment until a named person has checked it, and export-controlled topics stay out of meetings in a commercial tenant."},
 
     { type: "h3", text: "Where to Be Careful" },
     { type: "ul", items: [
       "**Action items can be wrong.** Copilot will extract 'Mike to send drawing by Friday' from a conversation where Mike never agreed. Always review action items before treating them as commitments.",
       "**Meeting summaries miss nuance.** The decision the team arrived at might be technically captured, but the rationale, dissent, and conditional caveats are often flattened. Use Copilot's summary as a starting point, then ask follow-up questions for depth.",
       "**Don't auto-send drafted emails.** Copilot drafts are starting points. Review for accuracy, tone, and unintended commitments before sending.",
-      "**Don't share meeting recordings without sensitivity labels.** Recording an ITAR or export-controlled discussion and letting Copilot summarize it is fine if the meeting transcript is properly classified. If not, you've just made the recording findable by anyone with tenant access to the recording's location.",
-      "**Confidentiality with external attendees.** When external guests join a meeting, the meeting transcription and Copilot summary may not have the same protections. Check your tenant's policies."
+      "**Labels alone do not make ITAR meetings safe for Copilot.** In a commercial Microsoft 365 tenant, a sensitivity label does not make it acceptable to record an ITAR or export-controlled discussion and have Copilot summarize it; that work belongs in an environment your export-control office has authorized, such as GCC High. Microsoft's documentation (checked November 2026) says Copilot in Teams is not currently available in GCC High, so plan on manual minutes there. Recordings and transcripts also spread: a meeting recording is saved to the organizer's OneDrive and shared with internal invitees (a channel meeting's recording goes to the channel's SharePoint site, open to channel members), and Copilot can surface that content to anyone who has access to it.",
+      "**Confidentiality with external attendees.** When external guests join a meeting, the meeting transcription and Copilot summary may not have the same protections. Check your tenant's policies.",
+      "**Skip prompts that cost more than they save.** A one- or two-line reply is usually faster to type than to prompt, wait for and proofread, and a crosstalk-heavy conference-room call can produce a summary that takes longer to fix than writing three decision bullets yourself."
     ]},
 
     { type: "callout", style: "key",
