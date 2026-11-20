@@ -9595,9 +9595,9 @@ const COPILOT_LESSONS = [
     { type: "h3", text: "Teams with Copilot" },
     { type: "p", text: "Teams Copilot has two flavors: Copilot in Teams chats/channels, and Copilot in Teams meetings (the killer feature for engineering)." },
     { type: "ul", items: [
-      "**Meeting recap and action items** — after a recorded/transcribed meeting, Copilot generates: key decisions, action items with owners, open questions, and a topic-level summary. Manually extracting these from an hour of design review notes typically takes 15-30 minutes; Copilot does it in seconds.",
+      "**Meeting recap and action items** — after a recorded/transcribed meeting, Copilot generates: key decisions, action items with owners, open questions, and a topic-level summary. Manually extracting these from an hour of design review notes typically takes 15-30 minutes; Copilot drafts the summary in seconds, though you should still budget a few minutes to verify owners and caveats.",
       "**Catch up on a meeting you missed** — 'what did I miss?' on a transcribed meeting. Includes who said what about which topics.",
-      "**Chat / channel summarization** — 'summarize the last 30 messages in #thermal-design' surfaces the current state without scrolling.",
+      "**Chat / channel summarization** — 'summarize the discussion from the last 24 hours in the Thermal Design channel' surfaces the current state without scrolling.",
       "**Live meeting Q&A** — ask Copilot during a meeting: 'what did Sarah just say about the cooling margin?' Useful for clarification without interrupting.",
       "**Generate follow-up emails** — convert meeting action items into draft emails with one prompt."
     ]},
@@ -9606,7 +9606,7 @@ const COPILOT_LESSONS = [
     { type: "ul", items: [
       "**Program review summaries** — convert a 90-minute review into a one-page status update with decisions, actions, and open issues.",
       "**Supplier call follow-ups** — auto-draft the 'thanks for the call, here's what we agreed' email with action items.",
-      "**Design review minutes** — replace the 'whose turn is it to take notes?' problem. Copilot's meeting summary covers it.",
+      "**Design review minutes (first draft)** — eliminate manual live note-taking so engineers can focus on the technical review, then assign one reviewer to verify Copilot's draft decisions and action owners before publishing formal minutes.",
       "**Engineering change board (ECB) prep** — summarize the email thread of comments on a proposed change so the board members can quickly see the open issues.",
       "**Inbox triage** — 'show me unread emails from the last 24 hours about Program X' to focus on what matters."
     ]},
